@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: ${POSTGRES_USERNAME:postgres}
+    password: ${POSTGRES_PASSWORD:postgres}
+    url: ${POSTGRES_JDBC_URL:jdbc:postgresql://localhost:5432/hkdb}
+  application:
+    name: chugun
+  jpa:
+    hibernate:
+      ddl-auto: update
+      defer-datasource-initialization: true
+server:
+  port: ${SERVER_PORT:8080}

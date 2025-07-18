@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:17.4
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: hkdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  app:
+    build: ./chugun
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db/hkdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    depends_on:
+      - db
+
+  front-app:
+    build: ./app
+    environment:
+      CHUGUN_HOST: backend-app-1:8080
+    ports:
+      - "5000:5000" # Changed host to 5001 since 5000 is already in use :/
+
+#  python-app:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile.python
+#    volumes:
+#      - ./:/app
+#    working_dir: /app
+#    command: sh -c "sleep 10 && python csv_to_postgres.py"
+#    depends_on:
+#      - db
+#      - app
