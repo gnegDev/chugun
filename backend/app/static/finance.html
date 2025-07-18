@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Твои финансы - Саша</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_finance.css') }}">
+</head>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+      google.charts.load('current', {'packages':['corechart']});
+
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows({{ charts_data|tojson }});
+
+        var options = {'title':'Траты по категориям',
+                       'width':400,
+                       'height':300,
+                       'pieHole':0.4};
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+</script>
+
+<body>
+     <div class="top-section">
+        <div class="header">
+            <div class="logos">
+                <img src="{{ url_for('static', filename='tbank.png') }}" alt="Банк" class="bank-logo">
+                <img src="{{ url_for('static', filename='itmo.png') }}" alt="ЦОЙ" class="tsoy-logo">
+            </div>
+            <div class="certificates">
+                <img src="{{ url_for('static', filename='58sch.png') }}" alt="Сертификат 1" class="cert-logo">
+            </div>
+        </div>
+        <div class="top-line"></div>
+        <nav class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/user/account">Аккаунт</a></li>
+                <li><a href="/user/account/transactions"><b>Финансы</b></a></li>
+                <li><a href="/user/account/advice">Советы</a></li>
+                <li><a href="/credits">Долги и кредиты</a></li>
+                <li><a href="/investments">Инвестиции</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content">
+        <h1 class="greeting">Твои финансы</h1>
+        <div class="finance-section">
+            
+            <h2>Статистика транзакций</h2>
+            <div id="chart_div"></div>
+
+        </div>
+
+
+        <div id="transactions-section" class="transactions-section">
+            <h2>Последние операции</h2>
+            <table class="expense-table">
+
+                {% for transaction in transactions %}
+
+                    <tr class="expense-row">
+
+                        <td class="item-details">
+                            <div class="category">{{ transaction["transaction_type_cd"] }}</div>
+                            <div class="description">{{ transaction["brand_nm"] }}</div>
+                        </td>
+                        <td class="amount">-{{ transaction["transaction_amt_rur"] }} ₽</td>
+                        <td class="edit-icon">
+                            <img src="{{ url_for('static', filename='pen.png') }}" alt="Редактировать">
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                
+            </table>
+        </div>
+
+
+        
+        <div class="form-container">
+            <div class="balance-container">
+                <p>Хотите загрузить данные из таблицы?</p>
+                <form id="csv-form" action="#" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="file">Файл:</label>
+                        <input type="file" id="file" name="file" accept=".csv" required>
+                    </div>
+
+                    <button type="submit">Загрузка файла</button>
+                </form>
+            </div>
+
+            <div class="balance-container">
+                <p>Или вручную</p>
+                <form id="transaction-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="account_rk">ID счета:</label>
+                        <input id="account_rk" name="account_rk" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="financial_account_type_cd">Тип счета:</label>
+                        <select id="financial_account_type_cd" name="financial_account_type_cd" required>
+                            <option value="">Выберите вариант</option>
+                            <option value="ACR">ACR</option>
+                            <option value="ALR">ALR</option>
+                            <option value="ASC">ASC</option>
+                            <option value="BIL">BIL</option>
+                            <option value="BNK">BNK</option>
+                            <option value="BNP">BNP</option>
+                            <option value="CAR">CAR</option>
+                            <option value="CCR">CCR</option>
+                            <option value="CLA">CLA</option>
+                            <option value="CLN">CLN</option>
+                            <option value="COR">COR</option>
+                            <option value="CUR">CUR</option>
+                            <option value="DEP">DEP</option>
+                            <option value="GRN">GRN</option>
+                            <option value="IND">IND</option>
+                            <option value="INS">INS</option>
+                            <option value="LON">LON</option>
+                            <option value="MOB">MOB</option>
+                            <option value="MTB">MTB</option>
+                            <option value="MTG">MTG</option>
+                            <option value="MTL">MTL</option>
+                            <option value="PHX">PHX</option>
+                            <option value="REF">REF</option>
+                            <option value="SAV">SAV</option>
+                            <option value="SCL">SCL</option>
+                            <option value="SLN">SLN</option>
+                            <option value="TAX">TAX</option>
+                            <option value="TCN">TCN</option>
+                            <option value="VKR">VKR</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="financial_account_subtype_cd">Подтип счета:</label>
+                        <select id="financial_account_subtype_cd" name="financial_account_subtype_cd" required>
+                            <option value="">Выберите вариант</option>
+                            <option value="ACR">ACR</option>
+                            <option value="ALR">ALR</option>
+                            <option value="ASC">ASC</option>
+                            <option value="BIL">BIL</option>
+                            <option value="BNK">BNK</option>
+                            <option value="BNP">BNP</option>
+                            <option value="CAR">CAR</option>
+                            <option value="CCR">CCR</option>
+                            <option value="CLA">CLA</option>
+                            <option value="CLN">CLN</option>
+                            <option value="COR">COR</option>
+                            <option value="CUR">CUR</option>
+                            <option value="DEP">DEP</option>
+                            <option value="GRN">GRN</option>
+                            <option value="IND">IND</option>
+                            <option value="INS">INS</option>
+                            <option value="LON">LON</option>
+                            <option value="MOB">MOB</option>
+                            <option value="MTB">MTB</option>
+                            <option value="MTG">MTG</option>
+                            <option value="MTL">MTL</option>
+                            <option value="PHX">PHX</option>
+                            <option value="REF">REF</option>
+                            <option value="SAV">SAV</option>
+                            <option value="SCL">SCL</option>
+                            <option value="SLN">SLN</option>
+                            <option value="TAX">TAX</option>
+                            <option value="TCN">TCN</option>
+                            <option value="VKR">VKR</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transaction_type_cd">Тип транзакции:</label>
+                        <select id="transaction_type_cd" name="transaction_type_cd" required>
+                            <option value="">Выберите вариант</option>
+                            <option value="ADO">ADO</option>
+                            <option value="ATR">ATR</option>
+                            <option value="ATT">ATT</option>
+                            <option value="CHB">CHB</option>
+                            <option value="DIN">DIN</option>
+                            <option value="FEE">FEE</option>
+                            <option value="GCS">GCS</option>
+                            <option value="PAY">PAY</option>
+                            <option value="PUC">PUC</option>
+                            <option value="RCI">RCI</option>
+                            <option value="RCU">RCU</option>
+                            <option value="RET">RET</option>
+                            <option value="TOT">TOT</option>
+                            <option value="TRM">TRM</option>
+                            <option value="TRS">TRS</option>
+                            <option value="UCH">UCH</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transaction_amt_rur">Сумма транзакции:</label>
+                        <input type="number" id="transaction_amt_rur" name="transaction_amt_rur"
+                            min="0"
+                            placeholder="Введите сумму" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="real_transaction_dttm">Время транзакции:</label>
+                        <input type="date" id="real_transaction_dttm" name="real_transaction_dttm" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="brand_nm">Название бренда транзакции:</label>
+                        <input id="brand_nm" name="brand_nm" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loyalty_cashback_category_nm">Название категории транзакции:</label>
+                        <input id="loyalty_cashback_category_nm" name="loyalty_cashback_category_nm" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loyalty_accrual_rub_amt">Сумма кэшбека:</label>
+                        <input type="number" id="loyalty_accrual_rub_amt" name="loyalty_accrual_rub_amt"
+                            min="0"
+                            placeholder="Введите сумму" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Утилизирующая транзакция:</label>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="utilization_flg" value="0" required checked>
+                                Нет
+                            </label>
+                            <label>
+                                <input type="radio" name="utilization_flg" value="1">
+                                Да
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit">Новая транзакция</button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">
+            <h2>Хахон</h2>
+            <a href="https://t.me/kirungryaaa"><p class="author">Цуканов Кирилл</p></a>
+            <a href="https://t.me/ivaxaxaxa"><p class="author">Вальтуилье Иван</p></a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('fileUpload').addEventListener('change', function(e) {
+            if(e.target.files.length > 0) {
+                document.getElementById('uploadLabel').textContent = 'Файл загружен';
+                document.getElementById('submitContainer').style.display = 'block';
+            }
+        });
+    </script>
+<style>
+    .balance-container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        line-height: 8px;
+    }
+    .date-link {
+      color: #333333;
+      text-decoration: none;
+      cursor: pointer;
+      border-bottom: 1px dashed #333333;
+    }
+    
+    .date-link:hover {
+      color: #000000;
+      border-bottom-color: #000000;
+    }
+    
+    .dropdown-menu {
+      position: absolute;
+      background: #F6F7F8;
+      border: none;
+      border-radius: 4px;
+      padding: 5px 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: none;
+    }
+    
+    .dropdown-item {
+      padding: 5px 15px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    
+    .dropdown-item:hover {
+      background-color: #f5f5f5;
+    }
+  </style>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const months = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 
+                     'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'];
+      const currentDate = new Date(2025, 6); // июль 2025 (месяцы 0-11)
+      const dropdownTemplate = document.getElementById('dropdownTemplate');
+      
+      // Инициализируем все триггеры
+      document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
+        // Создаем меню для каждого триггера
+        const menu = dropdownTemplate.content.cloneNode(true).querySelector('.dropdown-menu');
+        const content = menu.querySelector('.dropdown-content');
+        
+        // Генерируем месяцы для этого меню
+        for (let i = 0; i < 12; i++) {
+          const date = new Date(currentDate);
+          date.setMonth(currentDate.getMonth() - i);
+          
+          const monthName = months[date.getMonth()];
+          const year = date.getFullYear();
+          const displayText = `${monthName} ${year}`;
+          const value = `${String(date.getMonth() + 1).padStart(2, '0')}.${year}`;
+          
+          const item = document.createElement('div');
+          item.className = 'dropdown-item';
+          item.dataset.value = value;
+          item.textContent = displayText;
+          content.appendChild(item);
+        }
+        
+        // Добавляем меню в DOM рядом с триггером
+        trigger.parentNode.appendChild(menu);
+        
+        // Обработчики событий
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          closeAllMenus();
+          menu.style.display = 'block';
+        });
+        
+        menu.addEventListener('click', function(e) {
+          if (e.target.classList.contains('dropdown-item')) {
+            trigger.textContent = e.target.textContent;
+            menu.style.display = 'none';
+            console.log('Выбран месяц:', e.target.dataset.value, 'для:', trigger.parentNode.textContent.trim());
+          }
+        });
+      });
+      
+      // Закрываем все меню при клике вне
+      document.addEventListener('click', function(e) {
+        if (!e.target.classList.contains('dropdown-trigger') && 
+            !e.target.closest('.dropdown-menu')) {
+          closeAllMenus();
+        }
+      });
+      
+      function closeAllMenus() {
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+          menu.style.display = 'none';
+        });
+      }
+    });
+</script>
+
+<script>
+    function smoothScroll(targetId) {
+        var targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            // Используйте метод scrollIntoView для плавного скролла
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    }
+</script>
+      
+</body>
+</html>
+
+
+  

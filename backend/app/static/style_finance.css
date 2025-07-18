@@ -1,0 +1,516 @@
+@font-face {
+    font-family: Mont;
+    src: url("expresswayfree.ttf");
+}
+
+body {
+    font-family: 'Mont', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.top-section {
+    background: #F6F7F8;
+    padding-bottom: 13px;
+}
+.header {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+.logos { display: flex; align-items: center; gap: 20px; }
+.bank-logo { width: 200px; height: auto; }
+.tsoy-logo { width: 120px; height: auto; }
+.cert-logo { width: 75px; height: auto; margin-left: 10px; }
+.nav-container {
+    width: 85%;
+    margin: 0 auto;
+    padding: 12px 0;
+    border-top: 1px solid #E5E5E5;
+}
+.top-line {
+    width: 100%;
+    border: 0.5px solid #333333;
+    margin: 0 auto;
+}
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+.nav-menu a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 22px;
+    font-family: Mont;
+}
+
+.content {
+    width: 85%;
+    margin: 40px auto;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+span {
+    font-size: 25px;
+}
+
+
+
+.expence-item {
+    display: flex;
+    justify-content: right;
+}
+
+.date-link {
+    color: #000;
+    text-decoration: underline;
+}
+
+.finance-section {
+    margin-bottom: 60px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart-container {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 300px;
+}
+
+.chart {
+    width: 300px;
+    height: 300px;
+}
+
+.equal-line {
+    width: 100%;
+    height: 1px;
+    background-color: #333333;
+    margin: 20px 0;
+}
+
+.chart-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.expenses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.legend-item, .expence-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.legend-color {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: aqua;
+}
+
+.total {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.expense-item, .total.exp {
+    text-align: right;
+}
+
+.expenses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.expense-item, .total {
+    display: flex;
+    justify-content: flex-end; /* Выравнивание по правому краю */
+    align-items: center;
+    gap: 10px;
+}
+
+/* Стили для цветных кружков */
+.expense-color {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: aqua;
+}
+
+/* Цвета для разных категорий */
+
+.total {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.total.exp {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.arrow {
+    width: 30px;
+    height: auto;
+}
+
+.add-button {
+    background: #FFD700;
+    border: none;
+    border-radius: 40px;
+    padding: 15px 30px;
+    font-size: 25px;
+    font-family: 'Mont', sans-serif;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 400px;
+    height: 100px;
+    margin-top: 30px;
+}
+
+.diagramm {
+    width: 400px;
+    height: auto;
+}
+
+.diag-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.statistics-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.statistics-section img {
+    height: 550px;
+    width: auto;
+}
+
+.transactions-table {
+    width: 85%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.transactions-table td {
+    padding: 15px;
+    border-bottom: 1px solid #E5E5E5;
+    font-size: 18px;
+}
+
+.transactions-section h2 {
+    font-size: 60px;
+}
+
+.edit-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.show-more {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 25px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #F6F7F8;
+    width: 300px;
+    height: 80px;
+    border-radius: 30px;
+    font-family: Mont;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-content {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 70px;
+}
+
+.upload-text {
+    text-align: center;
+    font-size: 30px;
+    margin: auto;
+}
+
+.upload-section {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-button {
+    background: #FFD700;
+    border: none;
+    border-radius: 40px;
+    padding: 15px 30px;
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 350px;
+    height: 80px;
+}
+
+.upload-info {
+    color: #666;
+    font-size: 16px;
+    margin-top: -5px;
+}
+
+.statistics-chart {
+    width: 100%;
+    height: 400px;
+    background: #F6F7F8;
+    margin: 20px 0;
+}
+
+.expense-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+  }
+  
+.expense-table {
+    width: 85%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    margin-left: auto;
+    margin-right: auto
+}
+
+/*  */
+  
+.date-row {
+    background-color: #F6F7F8;
+    margin-top: 50px;
+}
+  
+.date-row td {
+    padding: 12px 20px;
+    font-size: 35px;
+    color: #333;
+    font-family: Mont;
+    border-radius: 10px;
+}
+  
+.expense-row {
+    border-bottom: 1px solid #eee;
+    position: relative;
+    width: 50%;
+}
+  
+.expense-row td {
+    padding: 15px 20px;
+    vertical-align: middle;
+}
+  
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.icon-circle img {
+    width: 80px;
+    height: 80px;
+    margin-left: 50px;
+}
+  
+.category {
+    color: #333333;
+    font-size: 20px;
+    font-family: Mont;
+}
+  
+.description {
+    color: #333333;
+    font-size: 35px;
+    font-family: Mont;
+}
+  
+.amount {
+    font-size: 30px;
+    color: #333;
+    text-align: right;
+    font-weight: 500;
+    font-family: Mont;
+}
+  
+.edit-icon {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+    padding: 0 10px;
+}
+  
+.edit-icon img {
+    width: 30px;
+    height: 30px;
+}
+  
+.expense-row:hover .edit-icon {
+    opacity: 1;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: -5%;
+}
+
+
+
+.footer {
+    margin-top: auto;
+    color: white;
+    background: black;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 100px;
+}
+
+.footer-content {
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin-left: 100px;
+    gap: 0px;
+}
+
+.footer-content a {
+    text-decoration: none;
+    color: white;
+}
+
+.author {
+    font-size: 20px;
+}
+
+.footer h2 {
+    font-size: 60px;
+    font-family: Mont;
+    margin: 0;
+}
+
+.modal, .modal1, .modal2 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 400px;
+    margin: 100px auto;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.edit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #FFD700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.submit-button {
+    background: none;
+    border: none;
+    color: #333333;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 5px 0;
+    font-size: 20px;
+    font-family: Mont;
+}
+
+.submit-button:hover {
+    color: #004499;
+}
+
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

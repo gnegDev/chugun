@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Саша - Финансовый помощник</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_preindex.css') }}">
+</head>
+<body>
+    <div class="header">
+        <div class="logos">
+            <img src="static/tbank.png" alt="Банк" class="bank-logo">
+            <img src="static/itmo.png" alt="ЦОЙ" class="tsoy-logo">
+        </div>
+        <div class="certificates">
+            <img src="static/58sch.png" alt="Сертификат 1" class="cert-logo">
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <div class="mascot-container">
+            <img src="static/sasha1.jpg" alt="Саша" class="mascot">
+        </div>
+        <div class="text-content">
+            <h1>Привет! Я Саша</h1>
+            <p>Я твой финансовый помощник. Помогу считать деньги, анализировать траты, находить способы сэкономить!</p>
+            <button onclick="smoothScroll('friendship-section')" class="button">Попробую!</button>
+        </div>
+    </div>
+    
+    <div id="friendship-section" class="friendship-section">
+        <div class="form-container">
+            <h2>Регистрация пользователя</h2>
+            <form id="create-form" action="/user/create" method="post">
+                <div class="radio-group">
+                    <select id="gender_cd" name="gender_cd" placeholder="Пол">
+                        <option value="" disabled selected>Пол</option>
+                        <option name="gender_cd" value="M">Мужской</option>
+                        <option name="gender_cd" value="F">Женский</option>
+                    </select>
+                </div>
+
+                <input type="text" id="country" name="citizenship_country_nm" placeholder="Страна" required>
+                <input type="text" id="region" name="lvn_state_nm" placeholder="Регион" required>
+                <input type="number" id="income" name="monthly_income_amt" placeholder="Месячный доход" min="0" required>
+                <input type="date" id="bank-date" name="first_bank_product_date" placeholder="Дата первого банковского продукта" required>
+
+                <select id="risk-level" name="risk_level_cd" required>
+                    <option disabled selected value="">Любовь к инвестициям</option>
+                    <option value="LWR">Не люблю</option>
+                    <option value="MED">Средне</option>
+                    <option value="HGH">Сильно</option>
+                </select>
+
+                <button type="submit" style="font-size: 30px;" class="button">Зарегистрироваться</button>
+            </form>
+        </div>
+        <div class="form-description">
+            <h2>Давай дружить!</h2>
+            <p style="width: 90%; margin-left: auto; margin-right: auto;">Расскажи немного о себе, чтобы я мог давать более точные советы. Ты всегда сможешь изменить эти данные, не переживай!</p>
+            <!-- <button class="button" style="font-size: 30px;">Давай!</button> -->
+        </div>
+    </div>
+
+    <div class="friendship-section">
+        <div class="form-description">
+            <h2>Мы уже дружим?</h2>
+            <p style="width: 90%; margin-left: auto; margin-right: auto; ">Введи свой ID и <br> мы снова будем вместе</p>
+            <form id="login-form" action="/user/login" method="post">
+                <input type="number" name="party_rk" placeholder="Введите ваш ID" required>
+                <button type="submit" style="margin-top: 30px;" class="button" style="font-size: 30px;">Войти!</button>
+            </form>
+            <br>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="footer-content">
+            <h2 style="margin-bottom: 20px;">Хахон</h2>
+            <a href="https://t.me/kirungryaaa"><p class="author">Цуканов Кирилл</p></a>
+            <a href="https://t.me/ivaxaxaxa"><p class="author">Вальтуилье Иван</p></a>
+        </div>
+    </div>
+    <script>
+        function smoothScroll(targetId) {
+            var targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                // Используйте метод scrollIntoView для плавного скролла
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
+</body>
+</html>

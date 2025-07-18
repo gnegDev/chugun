@@ -1,0 +1,176 @@
+@font-face {
+    font-family: Mont;
+    src: url("expresswayfree.ttf");
+}
+
+body {
+    font-family: 'Mont', sans-serif;
+    width: 100%;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-section {
+    background: #F6F7F8;
+    padding-bottom: 13px;
+}
+.header {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+.logos { display: flex; align-items: center; gap: 20px; }
+.bank-logo { width: 200px; height: auto; }
+.tsoy-logo { width: 120px; height: auto; }
+.cert-logo { width: 75px; height: auto; margin-left: 10px; }
+.nav-container {
+    width: 85%;
+    margin: 0 auto;
+    padding: 12px 0;
+    border-top: 1px solid #E5E5E5;
+}
+.top-line {
+    width: 100%;
+    border: 0.5px solid #333333;
+    margin: 0 auto;
+}
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+.nav-menu a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 22px;
+    font-family: Mont;
+}
+
+.settings-header {
+    font-size: 48px;
+    margin: 40px 0 0 200px;
+}
+
+.settings-section {
+    width: 70%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.settings-section h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    align-self: flex-start;
+}
+
+.info-card {
+    background: #F6F7F8;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 40px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.info-card p {
+    font-size: 30px;
+    margin: 10px 0;
+    margin-left: 30px;
+}
+
+.info-card ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.info-card li {
+    font-size: 30px;
+    margin: 5px 0;
+    margin-left: 100px;
+}
+
+.edit-button {
+    background: #FFD700;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 25px;
+    font-family: 'Mont', sans-serif;
+    width: 300px;
+    height: 70px;
+    margin-top: 20px;
+}
+
+.footer {
+    margin-top: 100px;
+    background: black;
+    padding: 40px;
+    color: white;
+}
+
+.footer-content {
+    text-align: center;
+    width: 30%;
+    margin-left: 100px;
+}
+
+.author {
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.footer-content a {
+    text-decoration: none;
+    color: white;
+}
+
+/* CSS */
+.modal, .modal1, .modal2 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 400px;
+    margin: 100px auto;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.edit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #FFD700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}

@@ -1,0 +1,986 @@
+@font-face {
+    font-family: Mont;
+    src: url('expresswayfree.ttf');
+}
+
+body {
+    background: #FFFFFF;
+    color: #333333;
+    font-family: 'Mont', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.top-section {
+    background: #F6F7F8;
+    padding-bottom: 13px;
+}
+.header {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.logos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.bank-logo {
+    width: 200px;
+    height: auto;
+}
+
+.tsoy-logo {
+    width: 120px;
+    height: auto;
+}
+
+.cert-logo {
+    width: 75px;
+    height: auto;
+    margin-left: 10px;
+}
+.nav-container {
+    width: 85%;
+    margin: 0 auto;
+    padding: 12px 0;
+    border-top: 1px solid #E5E5E5;
+}
+.top-line {
+    width: 100%;
+    border: 0.5px solid #333333;
+    margin: 0 auto;
+}
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px
+}
+.nav-menu a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 22px;
+    font-family: Mont;
+    
+}
+.greeting {
+    font-size: 60px;
+    margin-top: 40px;
+    margin-bottom: 42px;
+    margin-left: 200px;
+}
+
+/* ======= Блок "Твои долги и кредиты" ======= */
+.main-content {
+    width: 99%;
+    box-sizing: border-box;
+    max-width: 99%;
+}
+.debts-main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 64px;
+    margin-bottom: 64px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.debts-panels {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    align-items: center;
+    min-width: 310px;
+}
+.summary-card {
+    background: #F6F7F8;
+    border-radius: 60px;
+    padding: 35px 30px;
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 30px;
+    width: 450px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.summary-label {
+    font-size: 35px;
+    color: #333333;
+}
+.summary-value {
+    font-size: 60px;
+}
+.summary-desc {
+    font-size: 35px;
+    color: #333333;
+    margin-top: 0;
+}
+.yellow-btn {
+    background: #FFDD2D;
+    border: none;
+    border-radius: 60px;
+    color: #333333;
+    font-family: 'Mont', Arial, sans-serif;
+    font-size: 31px;
+    width: 450px;
+    height: 120px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+.yellow-btn:hover {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.upcoming-panel {
+    background: #F6F7F8;
+    border-radius: 60px;
+    box-sizing: border-box;
+    padding: 39px 37px 24px 37px;
+    display: flex;
+    flex-direction: column;
+    width: 750px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.upcoming-title {
+    font-size: 45px;
+    margin-bottom: 17px;
+    margin-top: 10px;
+    margin-left: 15px;
+    font-weight: 400;
+    text-align: left;
+}
+.operation-table {
+    width: 95%;
+    border-collapse: separate;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-spacing: 0 10px;
+}
+
+.upcoming-table td {
+    padding: 18px 10px 8px 5px;
+    vertical-align: middle;
+}
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+.icon-circle img { width: 80px; height: 80px; }
+.operation-details {
+    width: 100%;
+}
+.row-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+}
+.left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 10px;
+}
+.right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+.op-cat { 
+    color: #434343; 
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.op-name { 
+    color: #333333; 
+    font-size: 35px;
+}
+.op-date { 
+    color: #333333; 
+    font-size: 35px;
+}
+.op-days {
+    font-size: 20px;
+    color: #8c8c8c;
+    margin-bottom: 5px;
+}
+
+/* ======= Активные долги ======= */
+
+.debt-activity-title {
+    font-size: 60px;
+    margin-top: 40px;
+    margin-bottom: 42px;
+    margin-left: 200px;
+}
+.active-debt-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    margin-bottom: 55px;
+    width: 100vw;
+}
+.arrow-btn {
+    font-size: 100px;
+    color: #C1C1C1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    min-width: 80px;
+    transition: background 0.2s;
+    height: 110px;
+    font-family: Vag;
+    margin-bottom: 100px;
+}
+.active-debt-card {
+    background: #F6F7F8;
+    border-radius: 38px;
+    width: 75%;
+    padding: 64px 0 55px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    align-items: center;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);    
+}
+.active-debt-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    width: 60vw;
+}
+
+.active-debt-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon-circle.big { width: 100px; height: 100px; }
+.icon-circle.big img {width: 100px; height: 100px;}
+.active-debt-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 350px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.active-debt-catrow {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+.active-debt-cat {
+    font-size: 20px;
+    color: #434343;
+    margin-bottom: -5px;
+}
+.active-debt-name {
+    font-size: 50px;
+    color: #333333;
+    margin-bottom: 10px;
+}
+.progress-bar-outer {
+    background: #E9E9E9;
+    width: 400px;
+    height: 70px;
+    border-radius: 30px;
+    margin-top: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.progress-bar-inner {
+    height: 100%;
+    background: #FFDD2D;
+    width: 42%; /* Соответствует значению прогресса */
+    transition: width 0.4s;
+    border-radius: 13px 0 0 13px;
+    position: relative;
+    min-width: 70px; /* Минимальная ширина для отображения текста */
+}
+
+.progress-bar-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: #333333;
+    white-space: nowrap; /* Чтобы текст не переносился */
+}
+.active-debt-rows {
+    width: 61vw;
+    margin-top: 7px;
+}
+.row-horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 32px;
+    margin-top: 10px;
+}
+.active-debt-label {
+    color: #555;
+    font-size: 40px;
+    font-weight: 400;
+}
+.active-debt-value {
+    color: #333333;
+    font-size: 40px;
+}
+/* row2 только чтобы визуально чуть шире/крупнее сделать если надо */
+.row2 {
+    margin-top: 10px;
+}
+.active-debt-bottom {
+    display: flex;
+    gap: 70px;
+    margin-top: 16px;
+    justify-content: center;
+}
+.active-small-card {
+    background: #FFFFFF;
+    border-radius: 60px;
+    min-width: 330px;
+    padding: 32px 45px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.small-card-title {
+    margin-top: 10px;
+    font-size: 40px;
+    color: #333333;
+}
+.small-card-title-body {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.active-small-label {
+    font-size: 27px;
+    color: #434343;
+}
+.active-small-value {
+    color: #333333;
+    font-size: 27px;
+}
+.active-small-card button.yellow-btn {
+    margin-top: 20px;
+    width: 350px;
+    height: 70px;
+    font-size: 24px;
+    border-radius: 30px;
+}
+/* ======= АНАЛИТИКА ======= */
+.analytics-section {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 55px 0 60px 0;
+}
+.analytics-header {
+    font-size: 60px;
+    margin-top: 40px;
+    margin-bottom: 42px;
+    margin-left: 200px;
+}
+.analytics-subblock {
+    max-width: 75%;
+    margin: 0 auto 48px auto;
+    margin-top: 30px;
+    width: 80%;
+}
+.structure-title, .forecast-title {
+    font-size: 45px;
+    font-weight: 400;
+    margin-bottom: 13px;
+    margin-top: 8px;
+}
+.structure-content {
+    display: flex;
+    gap: 37px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.structure-diagram {
+    width: 450px;
+    min-width: 170px;
+    margin-right: 16px;
+    margin-top: 15px;
+    flex-shrink: 0;
+}
+.structure-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    flex: 1;
+    min-width: 270px;
+    margin-left: 30px;
+}
+.structure-legend-row {
+    display: flex;
+    align-items: center;
+    font-size: 27px;
+    gap: 9px;
+    justify-content: space-between;
+    border-radius: 11px;
+    padding: 3px 0 2px 0;
+}
+.legend-icon {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    margin-right: 7px;
+    background: #fff;
+    box-shadow: 0 1px 2px #eee;
+}
+.legend-label {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.legend-percent {
+    color: #333333;
+    font-size: 17px;
+    line-height: 1;
+}
+.legend-name {
+    color: #333333;
+    font-size: 19px;
+    line-height: 1;
+}
+.legend-sum {
+    flex: 1;
+    text-align: right;
+    font-size: 30px;
+    color: #222;
+    font-weight: 500;
+}
+.forecast-content {
+    display: flex;
+    align-items: stretch;
+    gap: 60px;
+    min-width: 320px;
+    width: 90%;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+}
+.forecast-left {
+    width: 36vw;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.forecast-text {
+    font-size: 30px;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 12px;
+    line-height: 1.15;
+}
+.forecast-months {
+    font-size: 60px;
+    margin-bottom: 13px;
+}
+.forecast-months span {
+    font-size: 21px;
+    font-weight: 400;
+    color: #888;
+}
+.forecast-rect {
+    width: 50%;
+    height: 200px;
+    background: #D9D9D9;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #333;
+    font-size: 25px;
+    font-family: 'Mont', Arial, sans-serif;
+    padding: 18px 12px;
+    box-sizing: border-box;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+@media (max-width: 900px) {
+    .analytics-section, .analytics-subblock {width: 98vw;}
+    .forecast-content {flex-direction: column;gap:25px;}
+    .forecast-rect, .forecast-left{width:100%;min-width: 0;max-width: 98vw;}
+}
+  
+/* ===== СОВЕТЫ и КАЛЬКУЛЯТОР ===== */
+.sasha-section, .calc-section {
+    width: 87vw;
+    max-width: 85%;
+    margin: 0 auto 64px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -60px;
+}
+  
+.sasha-header, .calc-header {
+    font-size: 45px;
+    font-weight: 400;
+    color: #000000;
+    margin: 0 0 28px 0;
+    text-align: center;
+    font-family: 'Mont', Arial, sans-serif;
+}
+  
+.sasha-tips-block {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 95%;
+    min-width: 250px;
+    gap: 44px;
+    justify-content: center;
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
+.sasha-cat {
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+.sasha-tips-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+    min-width: 240px;
+    max-width: 50%;
+
+}
+.s-tip {
+    font-size: 30px;
+    color: #333;
+    margin: 0 0 0 0;
+    padding: 10px 0 10px 0;
+    line-height: 1.24;
+    border-left: none;
+}
+.s-tip-divider {
+    width: 100%;
+    height: 1px;
+    background: #333333;
+    margin: 0 0 0 0;
+}
+.yellow-btn.sasha-more {
+    margin-top: 28px;
+    width: 450px;
+    height: 100px;
+    align-self: center;
+    font-size: 30px;
+    border-radius: 40px;
+}
+  
+.calc-section {
+    margin-bottom: 60px;
+}
+.calc-header {
+    font-size: 45px;
+    margin-bottom: 33px;
+    color: #000000;
+}
+.calc-form-block {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 80%;
+    min-width: 250px;
+    gap: 44px;
+    justify-content: center;
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
+
+.calc-input {
+    width: 500px;
+    height: 100px;
+    box-sizing: border-box;
+    padding: 16px 30px;
+    margin: 0 auto;
+    border-radius: 40px;
+    border: 1.5px solid #EFEFEF;
+    font-size: 25px;
+    background: #F6F7F8;
+    color: #959699;
+    margin-bottom: 0;
+    font-family: 'Mont', Arial, sans-serif;
+}
+.calc-btn {
+    margin-top: 8px;
+    font-size: 30px;
+    width: 500px;
+    height: 100px;
+    margin-top: 20px;
+    border-radius: 40px;
+}
+.calc-result-group {
+    width: 125%;
+    text-align: center;
+    margin-top: 11px;
+}
+.calc-result-title {
+    font-size: 30px;
+    color: #333333;
+    font-weight: 400;
+    text-align: center;
+}
+.calc-result-title.small {margin-top: 21px;}
+.calc-result-main {
+    font-size: 30px;
+    color: #333333;
+    margin-bottom: 3px;
+    text-align: center;
+}
+.calc-result-main span {
+    font-size: 50px;
+    color: #333;
+}
+  
+@media (max-width: 800px){
+    .sasha-tips-block { flex-direction: column; align-items: center; }
+    .sasha-cat { margin-bottom: 20px; }
+    .sasha-tips-content { width: 100%; min-width: 0; }
+    .sasha-section, .calc-section {width: 98vw;}
+}
+  
+.footer {
+    background: #000000;
+    color: #fff;
+    margin-top: 90px;
+    padding: 38px;
+}
+.footer h2 { font-size: 40px;}
+.footer-content {
+    text-align: center;
+    width: 30%;
+    margin-left: 100px;
+}
+.footer-content a {
+    text-decoration: none;
+    color: white;
+}
+.author { font-size: 20px; margin-top: -10px; }
+@media (max-width: 1200px){
+    .debts-main, .sasha-calc-flex {flex-direction: column;align-items: center;gap:50px;}
+    .footer-content {margin-left:0;width:100%;}
+    .analytics-block{width:97vw}
+    .structure-block, .forecast-block{width:95vw;padding:25px;}
+    .sasha-advice{width:95vw;min-width:0;}
+    .calc-block{width:95vw;min-width:0}
+}
+
+.modal2 {
+    display: none; /* Важно: изначально окно скрыто */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    
+    /* Центрирование содержимого */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Показываем flex только когда модальное окно активно */
+.modal2 {
+    display: none; /* Изначально скрыто */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow: auto;
+}
+
+.modal2.active {
+    display: block; /* Показываем как block, а не flex */
+}
+
+.modal2 .modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    
+    /* Современный способ центрирования */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Анимация появления */
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.modal2, h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal2 p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal2 input, 
+.modal2 select {
+    width: 100%;
+    font-family: Mont;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.modal2 .edit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #FFD700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    font-family: Mont;
+}
+
+.modal2 .edit-btn:hover {
+    background-color: #FFC800;
+}
+.modal1 {
+    display: none; /* Изначально скрыто */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow: auto;
+}
+
+.modal1.active {
+    display: block; /* Показываем как block, а не flex */
+}
+
+.modal1 .modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    
+    /* Современный способ центрирования */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Анимация появления */
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.modal1, h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal1 p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal1 input, 
+.modal1 select {
+    width: 100%;
+    font-family: Mont;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.modal1 .edit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #FFD700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    font-family: Mont;
+}
+
+.modal1 .edit-btn:hover {
+    background-color: #FFC800;
+}
+.modal3 {
+    display: none; /* Изначально скрыто */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow: auto;
+}
+
+.modal3.active {
+    display: block; /* Показываем как block, а не flex */
+}
+
+.modal3 .modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    
+    /* Современный способ центрирования */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Анимация появления */
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.modal3, h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal3 p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal3 input, 
+.modal3 select {
+    width: 100%;
+    font-family: Mont;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.modal3 .edit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #FFD700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    font-family: Mont;
+}
+
+.modal3 .edit-btn:hover {
+    background-color: #FFC800;
+}

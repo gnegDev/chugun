@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Твои финансы - Саша</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_index.css') }}">
+    <!-- <script src="js_index.js"></script> -->
+</head>
+<body>
+    <div class="top-section">
+        <div class="header">
+            <div class="logos">
+                <img src="{{ url_for('static', filename='tbank.png') }}" alt="Банк" class="bank-logo">
+                <img src="{{ url_for('static', filename='itmo.png') }}" alt="ЦОЙ" class="tsoy-logo">
+            </div>
+            <div class="certificates">
+                <img src="{{ url_for('static', filename='58sch.png') }}" alt="Сертификат 1" class="cert-logo">
+            </div>
+        </div>
+        <div class="top-line"></div>
+        <nav class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/user/account"><b>Аккаунт</b></a></li>
+                <li><a href="/user/account/transactions">Финансы</a></li>
+                <li><a href="/user/account/advice">Советы</a></li>
+                <li><a href="/credits">Долги и кредиты</a></li>
+                <li><a href="/investments">Инвестиции</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <h1 class="greeting">Привет!</h1>
+
+    <div class="balance-cards">
+        <!-- <div class="balance-card">
+            <p>Остаток на месяц</p>
+            <h2>35571,28 ₽</h2>
+        </div> -->
+        <div class="balance-card">
+            <p>На счетах</p>
+            <h2>{{ total_balance }}</h2>
+        </div>
+        <!-- <div class="balance-card">
+            <p>Копилка</p>
+            <h2>650000,00 ₽</h2>
+        </div> -->
+        
+    </div>
+
+    
+
+    <h2 id="recommendations-header" class="recommendations-header">Советы от Саши</h2>
+
+    <div class="recommendations">
+        <div class="recommendation-content">
+            <img src="{{ url_for('static', filename='sasha3.jpg') }}" alt="Саша на скейте" class="sasha-image">
+            <div class="recommendation-text">
+                <h3>Персональные рекомендации</h3>
+                <a href="/user/account/advice">
+                    <button class="edit-btn">Получить совет</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="piggy-bank" class="piggy-bank">
+        <div class="piggy-content">
+            <h3>Копилка</h3>
+            
+            {% for balance in balances %}
+            <div class="piggy-info">
+                <p style="font-size: 30px;">Баланс {{ balance["account_rk"] }}</p>
+                <br>
+                <h2 style="font-size: 50px;">{{ balance["balance_amt"] }}</h2>
+                <br>
+                <p>за эти деньги ты мог бы купить  {{ balance["balance_amt"] / 488 }} ананаса</p>
+                
+            </div>
+            {% endfor %}
+
+
+            <!-- <div class="piggy-info">
+                <p style="font-size: 30px;">ты накопил</p>
+                <br>
+                <h2 style="font-size: 50px;">650000,00 ₽</h2>
+                <br>
+                <p>за эти деньги ты мог бы купить 1332 ананаса</p>
+                
+            </div> -->
+
+            <!-- <button id="edit-button" class="edit-button">Править</button> -->
+            <div class="modal">
+                <div class="modal-content">
+                    <h2>Копилка</h2>
+                    <p>Введите данные, которые хотите изменить</p>
+                    
+                    <input type="number" placeholder="Сумма в копилке">
+                    
+                    <button class="edit-btn">Редактировать</button>
+                </div>
+            </div>
+            
+            <script>
+                const editButton = document.getElementById('edit-button');
+                const modal = document.querySelector('.modal');
+            
+                editButton.addEventListener('click', () => {
+                    modal.style.display = 'block';
+                });
+            
+                window.addEventListener('click', (event) => {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            </script>
+        </div>
+        <img src="{{ url_for('static', filename='sasha2.jpg') }}" alt="Саша с сердечками" class="sasha-heart">
+    </div>
+
+    <div class="goal-section">
+        <img src="{{ url_for('static', filename='goal.png') }}" alt="MacBook Pro" class="goal-image">
+        <div class="goal-info">
+            <h2 class="goal-header">Цель</h2>
+            <h3 class="goal-subheader">Ноутбук Apple MacBook Pro 16'</h3>
+            <h2 class="goal-amount">700980,00 ₽</h2>
+            <p>все обязательно получится</p>
+        </div>
+    </div>
+
+    <h2 id="currency-header" class="currency-header">Курсы валют и ценных бумаг</h2>
+
+    <div class="currency-section">
+        <div class="currency-grid-container">
+            <div class="legend">
+                <span class="up-legend">● Рост стоимости</span>
+                <span class="down-legend">● Падение стоимости</span>
+            </div>
+            <div class="currency-grid">
+                <!-- Валюты -->
+                <div class="currency-card loading" data-type="currency" data-symbol="USD/RUB">
+                    <p>Доллар США</p>
+                    <h3>...</h3>
+                </div>
+                <div class="currency-card loading" data-type="currency" data-symbol="EUR/RUB">
+                    <p>Евро</p>
+                    <h3>...</h3>
+                </div>
+                <div class="currency-card loading" data-type="currency" data-symbol="CNY/RUB">
+                    <p>Юань</p>
+                    <h3>...</h3>
+                </div>
+                <div class="currency-card loading" data-type="currency" data-symbol="JPY/RUB">
+                    <p>Японская йена</p>
+                    <h3>...</h3>
+                </div>
+                <!-- Криптовалюты -->
+                <div class="currency-card loading" data-type="crypto" data-symbol="BTC-USD">
+                    <p>Bitcoin (BTC)</p>
+                    <h3>...</h3>
+                </div>
+                <div class="currency-card loading" data-type="crypto" data-symbol="ETH-USD">
+                    <p>Ethereum (ETH)</p>
+                    <h3>...</h3>
+                </div>
+                <!-- Акции -->
+                <div class="currency-card loading" data-type="stock" data-symbol="AFLT">
+                    <p>Сбербанк</p>
+                    <h3>...</h3>
+                </div>
+                <div class="currency-card loading" data-type="stock" data-symbol="TSLA">
+                    <p>Tesla (TSLA)</p>
+                    <h3>...</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">
+            <h2>Хахон</h2>
+            <a href="https://t.me/kirungryaaa"><p class="author">Цуканов Кирилл</p></a>
+            <a href="https://t.me/ivaxaxaxa"><p class="author">Вальтуилье Иван</p></a>
+        </div>
+    </div>
+    <script>
+        function smoothScroll(targetId) {
+            var targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                // Используйте метод scrollIntoView для плавного скролла
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
+    
+</body>
+</html>

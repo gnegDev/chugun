@@ -1,0 +1,523 @@
+@font-face { font-family: Mont; src: url('expresswayfree.ttf'); }
+body {
+    background: #FFFFFF;
+    color: #333333;
+    font-family: 'Mont', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.top-section {
+    background: #F6F7F8;
+    padding-bottom: 13px;
+}
+.header {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+.logos { display: flex; align-items: center; gap: 20px; }
+.bank-logo { width: 200px; height: auto; }
+.tsoy-logo { width: 120px; height: auto; }
+.cert-logo { width: 75px; height: auto; margin-left: 10px; }
+.nav-container {
+    width: 85%;
+    margin: 0 auto;
+    padding: 12px 0;
+    border-top: 1px solid #E5E5E5;
+}
+.top-line {
+    width: 100%;
+    border: 0.5px solid #333333;
+    margin: 0 auto;
+}
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+.nav-menu a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 22px;
+    font-family: Mont;
+}
+.greeting {
+    font-size: 60px;
+    margin-top: 40px;
+    margin-bottom: 42px;
+    margin-left: 200px;
+    font-weight: 400;
+}
+
+/* Инвест панель верх */
+.invest-main-panel {
+    width: 80vw;
+    max-width: 85%;
+    display: flex;
+    gap: 42px;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin: 0 auto 36px auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.invest-panel-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 30px;
+    width: 50%;
+}
+.invest-card {
+    background: #F6F7F8;
+    border-radius: 50px;
+    padding: 38px 35px;
+    width: 450px;
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.14);
+}
+.invest-card-label { font-size: 30px; color: #333333; }
+.invest-card-value { font-size: 55px; margin: 10px 0 3px 0; }
+.invest-card-delta {
+    font-size: 25px;
+    color: #00BA00;
+}
+.invest-card-delta.negative { color: #BA0700; }
+.invest-card-delta.positive { color: #00BA00; }
+.yellow-btn {
+    background: #FFDD2D;
+    border: none;
+    border-radius: 40px;
+    color: #333333;
+    font-family: 'Mont', Arial, sans-serif;
+    font-size: 30px;
+    width: 450px;
+    height: 100px;
+    cursor: pointer;
+
+    margin-bottom: 0;
+    transition: box-shadow 0.2s;
+}
+.yellow-btn:hover {
+    box-shadow: 0 4px 12px rgba(255,221,45,0.18);
+}
+
+.chart-col {
+    flex: 1;
+    min-width: 410px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.invest-chart-header {
+    font-size: 40px;
+    margin-bottom: 25px;
+    color: #333;
+    text-align: center;
+}
+.invest-link {
+    text-decoration: underline;
+    color: #333333;
+    cursor: pointer;
+}
+.invest-chart-placeholder {
+    background: #D9D9D9;
+    border-radius: 22px;
+    width: 600px;
+    max-width: 90%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Mont', Arial, sans-serif;
+    padding: 0 30px;
+}
+
+/* Кратко о рынке */
+.market-short {
+    width: 90vw;
+    max-width: 1500px;
+    margin: 50px auto 40px auto;
+}
+.market-header {
+    font-size: 60px;
+    margin-top: 100px;
+    margin-bottom: 42px;
+    margin-left: 200px;
+    font-weight: 400;
+}
+.market-content {
+    width: 80%;
+    display: flex;
+    align-items: center;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+.market-cat-img {
+    width: 400px;
+    max-width: 45vw;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+.market-ideas {
+    display: flex;
+    flex-direction: column;
+    min-width: 280px;
+    width: 80%;
+    max-width: 700px;
+    font-size: 33px;
+    align-items: center;
+}
+.market-idea {
+    margin: 0 0 0 0;
+    color: #333;
+    line-height: 1.32;
+    padding: 11px 0 11px 0;
+    border-left: none;
+}
+.idea-sep {
+    width: 100%;
+    height: 1.5px;
+    background: #333;
+    margin: 0;
+}
+.market-more {
+    margin-top: 33px;
+    height: 100px;
+    width: 475px;
+    font-size: 30px;
+    border-radius: 40px;
+    align-self: center;
+}
+
+/* Портфель */
+.portfolio-section {
+    width: 90%;
+    margin: 60px auto;
+    max-width: 1700px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+.portfolio-header {
+    font-size: 60px;
+    margin-top: 40px;
+    margin-bottom: -42px;
+    margin-left: 200px;
+    font-weight: 400;
+}
+.structure-title,  .assets-header {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.structure-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    margin-left: 150px;
+}
+.structure-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+}
+.structure-diagram {
+    width: 450px;
+    flex-shrink: 0;
+}
+.structure-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    flex: 1;
+    margin-left: 30px;
+}
+.structure-legend-row {
+    display: flex;
+    align-items: center;
+    font-size: 27px;
+    gap: 9px;
+    justify-content: space-between;
+    border-radius: 11px;
+    padding: 3px 0 2px 0;
+    width: 80%;
+}
+.legend-icon {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    margin-right: 7px;
+    background: #fff;
+    box-shadow: 0 1px 2px #eee;
+}
+.legend-label {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.legend-percent {
+    color: #333333;
+    font-size: 17px;
+    line-height: 1;
+}
+.legend-name {
+    color: #333333;
+    font-size: 19px;
+    line-height: 1;
+}
+.legend-sum {
+    flex: 1;
+    text-align: right;
+    font-size: 33px;
+    color: #222;
+    font-weight: 500;
+}
+
+/* Активы */
+.assets-header {
+    font-size: 40px;
+    text-align: center;
+}
+
+.assets-table {
+    width: 98%;
+    margin: 0 auto 30px auto;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    font-family: 'Mont', Arial, sans-serif;
+}
+.assets-table th {
+    font-size: 20px;
+    color: #333;
+    font-weight: 400;
+    text-align: left;
+    padding: 16px 16px 10px 14px;
+    text-align: center;
+    border-radius: 16px 16px 0 0;
+}
+.assets-table td {
+    font-size: 25px;
+    padding: 19px 17px;
+    vertical-align: middle;
+    border-radius: 18px;
+    text-align: center;
+}
+.asset-row {
+    background: #fff;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+
+.asset-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.asset-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #f2f2f2;
+    margin-right: 10px;
+}
+.asset-text {
+    display: flex;
+    flex-direction: column;
+}
+.asset-ticker {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.2;
+    text-align: start;
+}
+.asset-name {
+    font-size: 25px;
+    color: #333;
+    line-height: 1.2;
+}
+.edit-icon {
+    width: 38px;
+    height: 38px;
+    opacity: 0;
+    transition: opacity 0.18s;
+    text-align: right;
+}
+.pen-btn {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.asset-row:hover .edit-icon {
+    opacity: 1;
+}
+.edit-icon img {
+    width: 36px;
+    height: 36px;
+}
+
+.delta.positive { color: #00BA00; }
+.delta.negative { color: #BA0700; }
+
+/* Кнопка портфеля */
+.portfolio-add {
+    margin-left: auto;
+    margin-right: 50px;
+    margin-top: 18px;
+    width: 400px;
+    height: 100px;
+    font-size: 30px;
+    border-radius: 35px;
+    display: block;
+}
+
+/* Footer */
+.footer {
+    background: #000000;
+    color: #fff;
+    margin-top: 90px;
+    padding: 38px;
+}
+.footer h2 { font-size: 45px; }
+.footer-content {
+    text-align: center;
+    width: 30%;
+    margin-left: 100px;
+}
+.footer-content a {
+    text-decoration: none;
+    color: white;
+}
+.author { font-size: 20px; margin-top: -10px; }
+@media (max-width: 1400px){
+    .main-content, .invest-main-panel, .portfolio-section, .market-short {width: 98vw;}
+    .assets-table, .structure-content{display:block; width:99vw}
+}
+@media (max-width: 900px){
+    .invest-main-panel, .market-content, .structure-content {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Добавьте эти стили в ваш CSS файл */
+.modal2 {
+    display: none; /* Важно: изначально окно скрыто */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    
+    /* Центрирование содержимого */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Показываем flex только когда модальное окно активно */
+.modal2 {
+    display: none; /* Изначально скрыто */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow: auto;
+}
+
+.modal2.active {
+    display: block; /* Показываем как block, а не flex */
+}
+
+.modal2 .modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    
+    /* Современный способ центрирования */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Анимация появления */
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.modal2 h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal2 p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal2 input, 
+.modal2 select {
+    width: 100%;
+    font-family: Mont;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.modal2 .edit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #FFD700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    font-family: Mont;
+}
+
+.modal2 .edit-btn:hover {
+    background-color: #FFC800;
+}

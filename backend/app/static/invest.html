@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Твои инвестиции</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_invest.css') }}">
+</head>
+<body>
+    <div class="top-section">
+        <div class="header">
+            <div class="logos">
+                <img src="{{ url_for('static', filename='tbank.png') }}" alt="Банк" class="bank-logo">
+                <img src="{{ url_for('static', filename='itmo.png') }}" alt="ЦОЙ" class="tsoy-logo">
+            </div>
+            <div class="certificates">
+                <img src="{{ url_for('static', filename='58sch.png') }}" alt="Сертификат 1" class="cert-logo">
+            </div>
+        </div>
+        <div class="top-line"></div>
+        <nav class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/user/account">Аккаунт</a></li>
+                <li><a href="/user/account/transactions">Финансы</a></li>
+                <li><a href="/user/account/advice">Советы</a></li>
+                <li><a href="/credits">Долги и кредиты</a></li>
+                <li><a href="/investments"><b>Инвестиции</b></a></li>
+            </ul>
+        </nav>
+    </div>
+    <main class="main-content">
+        <h1 class="greeting">Твои инвестиции</h1>
+
+        <!-- Верхний блок: стоимость + динамика -->
+        <section class="invest-main-panel">
+            <div class="invest-panel-col">
+                <div class="invest-card">
+                    <div class="invest-card-label">Общая текущая стоимость портфеля</div>
+                    <div class="invest-card-value">1234567.89 ₽</div>
+                </div>
+                <div class="invest-card">
+                    <div class="invest-card-label">За последние 24&nbsp;часа</div>
+                    <div class="invest-card-value positive">+10500,46 ₽</div>
+                    <div class="invest-card-delta positive">+0,85 %</div>
+                </div>
+                <button class="yellow-btn">Перейти к деталям</button>
+            </div>
+            <div class="invest-panel-col chart-col">
+                <div class="invest-portfolio-dynamics">
+                    <div class="invest-chart-header">
+                        Динамика портфеля за&nbsp; <br>
+                        <span class="invest-link">последние сутки</span>
+                    </div>
+                    <div class="invest-chart-placeholder">
+                        Линейная диаграмма с динамикой портфеля за последние 24 часа – неделю
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок "Кратко о рынке" -->
+        <h2 class="market-header">Кратко о рынке</h2>
+        <section class="market-short">
+            <div class="market-content">
+                <div class="market-cat-col" style="width: 50%; display: flex; align-items: flex-end">
+                    <img src="{{ url_for('static', filename='Саши/sasha6_nb.png') }}" alt="Кот анализ рынка" class="market-cat-img">
+                </div>
+                <div class="market-ideas">
+                    <div class="market-idea">Рынки Азии показывают смешанную динамику на фоне новостей о торговых переговорах</div>
+                    <div class="idea-sep"></div>
+                    <div class="market-idea">Обратите внимание на отчетность компании X на этой неделе, она может повлиять на сектор Y</div>
+                    <div class="idea-sep"></div>
+                    <div class="market-idea">Акции растут на фоне сообщения WSJ о планах Китая по борьбе с торговлей фентанилом</div>
+                    <button class="yellow-btn market-more">Подробнее</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок "Твой портфель" -->
+        <h2 class="portfolio-header">Твой портфель</h2>
+        <section class="portfolio-section">
+            <div class="portfolio-structure-block">
+                <div class="structure-title">Общая структура портфеля</div>
+                <div class="structure-content">
+                    <img src="{{ url_for('static', filename='d2.png') }}" alt="Круговая диаграмма" class="structure-diagram">
+            
+                    <div class="structure-legend">
+                        <div class="structure-legend-row">
+                            <img src="{{ url_for('static', filename='Иконки_акции/Акции РФ.png') }}" alt="" class="legend-icon">
+                            <span class="legend-label"><span class="legend-percent">46,0 % портфеля</span> Акции РФ</span>
+                            <span class="legend-sum">1583211,00 ₽</span>
+                        </div>
+                        <div class="structure-legend-row">
+                            <img src="{{ url_for('static', filename='Иконки_акции/Иностранные акции.png') }}" alt="" class="legend-icon">
+                            <span class="legend-label"><span class="legend-percent">15,0 % портфеля</span> Иностранные акции</span>
+                            <span class="legend-sum">256079,05 ₽</span>
+                        </div>
+                        <div class="structure-legend-row">
+                            <img src="{{ url_for('static', filename='Иконки_акции/Драгоценные металлы.png') }}" alt="" class="legend-icon">
+                            <span class="legend-label"><span class="legend-percent">8,0 % портфеля</span> Драгоценные металлы</span>
+                            <span class="legend-sum">561253,55 ₽</span>
+                        </div>
+                        <div class="structure-legend-row">
+                            <img src="{{ url_for('static', filename='Иконки_акции/Валюта.png') }}" alt="" class="legend-icon">
+                            <span class="legend-label"><span class="legend-percent">5,0 % портфеля</span> Валюта</span>
+                            <span class="legend-sum">315897,62 ₽</span>
+                        </div>
+                        <div class="structure-legend-row">
+                            <img src="{{ url_for('static', filename='Иконки_акции/Криптовалюта.png') }}" alt="" class="legend-icon">
+                            <span class="legend-label"><span class="legend-percent">9,0 % портфеля</span> Криптовалюта</span>
+                            <span class="legend-sum">835761,12 ₽</span>
+                        </div>
+                        <div class="structure-legend-row">
+                            <img src="{{ url_for('static', filename='Иконки_акции/Облигации.png') }}" alt="" class="legend-icon">
+                            <span class="legend-label"><span class="legend-percent">0,0 % портфеля</span> Облигации</span>
+                            <span class="legend-sum">0,00 ₽</span>
+                        </div>
+                        <div class="structure-legend-row">
+                            <img src="{{ url_for('static', filename='Иконки_акции/Фонды.png') }}" alt="" class="legend-icon">
+                            <span class="legend-label"><span class="legend-percent">1,0 % портфеля</span> Фонды</span>
+                            <span class="legend-sum">7102,27 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Таблица активов -->
+            <p class="assets-header">Активы в портфеле</p>
+            <table class="assets-table">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Кол-во</th>
+                        <th>Текущ. цена</th>
+                        <th>Изм. за сутки</th>
+                        <th>Текущ. стоимость</th>
+                        <th>Доходность</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="asset-row">
+                        <td>
+                            <div class="asset-info">
+                                <img src="{{ url_for('static', filename='Иконки_акции/Акции РФ.png') }}" class="asset-icon" alt="">
+                                <div class="asset-text">
+                                    <div class="asset-ticker">VTBR</div>
+                                    <div class="asset-name">Банк ВТБ</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>187,3642</td>
+                        <td>97,28 ₽</td>
+                        <td class="delta negative">-0,62 %</td>
+                        <td>174837,957 ₽</td>
+                        <td class="delta negative">-137,642 %</td>
+                        <td class="edit-icon"><button id="edit-button2" class="pen-btn"><img src="{{ url_for('static', filename='pen.png') }}" alt="Редактировать"></button></td>
+                    </tr>
+                    <tr class="asset-row">
+                        <td>
+                            <div class="asset-info">
+                                <img src="{{ url_for('static', filename='Иконки_акции/Акции РФ.png') }}" class="asset-icon" alt="">
+                                <div class="asset-text">
+                                    <div class="asset-ticker">AFLT</div>
+                                    <div class="asset-name">Аэрофлот</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>295,2755</td>
+                        <td>68,38 ₽</td>
+                        <td class="delta negative">-3,85 %</td>
+                        <td>20190,944 ₽</td>
+                        <td class="delta positive">+45,816 %</td>
+                        <td class="edit-icon"><button id="edit-button2" class="pen-btn"><img src="{{ url_for('static', filename='pen.png') }}" alt="Редактировать"></button></td>
+                    </tr>
+                    <tr class="asset-row">
+                        <td>
+                            <div class="asset-info">
+                                <img src="{{ url_for('static', filename='Иконки_акции/Иностранные акции.png') }}" class="asset-icon" alt="">
+                                <div class="asset-text">
+                                    <div class="asset-ticker">AAPL</div>
+                                    <div class="asset-name">Apple Inc.</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>3,0225</td>
+                        <td>16860,69 ₽</td>
+                        <td class="delta negative">-4,28 %</td>
+                        <td>50961,450 ₽</td>
+                        <td class="delta negative">-52,602 %</td>
+                        <td class="edit-icon"><button id="edit-button2" class="pen-btn"><img src="{{ url_for('static', filename='pen.png') }}" alt="Редактировать"></button></td>
+                    </tr>
+                    <tr class="asset-row">
+                        <td>
+                            <div class="asset-info">
+                                <img src="{{ url_for('static', filename='Иконки_акции/Драгоценные металлы.png') }}" class="asset-icon" alt="">
+                                <div class="asset-text">
+                                    <div class="asset-ticker">AU (за грамм)</div>
+                                    <div class="asset-name">Золото</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>4,1765</td>
+                        <td>8659,46 ₽</td>
+                        <td class="delta positive">+0,75 %</td>
+                        <td>36339,423 ₽</td>
+                        <td class="delta negative">-1,156 %</td>
+                        <td class="edit-icon"><button id="edit-button2" class="pen-btn"><img src="{{ url_for('static', filename='pen.png') }}" alt="Редактировать"></button></td>
+                    </tr>
+                    <tr class="asset-row">
+                        <td>
+                            <div class="asset-info">
+                                <img src="{{ url_for('static', filename='Иконки_акции/Валюта.png') }}" class="asset-icon" alt="">
+                                <div class="asset-text">
+                                    <div class="asset-ticker">USD</div>
+                                    <div class="asset-name">Доллар США</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>1000</td>
+                        <td>82,75 ₽</td>
+                        <td class="delta positive">+0,62 %</td>
+                        <td>82750,000 ₽</td>
+                        <td class="delta negative">-25,063 %</td>
+                        <td class="edit-icon"><button id="edit-button2" class="pen-btn"><img src="{{ url_for('static', filename='pen.png') }}" alt="Редактировать"></button></td>
+                    </tr>
+                    <tr class="asset-row">
+                        <td>
+                            <div class="asset-info">
+                                <img src="{{ url_for('static', filename='Иконки_акции/Криптовалюта.png') }}" class="asset-icon" alt="">
+                                <div class="asset-text">
+                                    <div class="asset-ticker">BTC</div>
+                                    <div class="asset-name">Bitcoin</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>0,01168</td>
+                        <td>8031599,17 ₽</td>
+                        <td class="delta positive">+0,45 %</td>
+                        <td>93809,078 ₽</td>
+                        <td class="delta negative">-29,788 %</td>
+                        <td class="edit-icon"><button id="edit-button2" class="pen-btn"><img src="{{ url_for('static', filename='pen.png') }}" alt="Редактировать"></button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="modal2">
+                <div class="modal-content">
+                    <h2>Корректировка</h2>
+                    <p>Введите новые данные об активе</p>
+                    
+                    <input type="text" placeholder="Количество">
+                    <input type="number" placeholder="Цена за штуку при покупке">
+                    
+                    <button class="edit-btn">Редактировать</button>
+                </div>
+            </div>
+            <button id="edit-button2" class="yellow-btn portfolio-add">Добавить актив</button>
+            <div class="modal2">
+                <div class="modal-content">
+                    <h2>Добавление актива</h2>
+                    <p>Введите данные о ценной бумаге</p>
+                    
+                    <input type="text" placeholder="Количество">
+                    <input type="number" placeholder="Цена за штуку при покупке">
+
+                    <select>
+                        <option disabled selected value="cash">Категория</option>
+                        <option value="cash">Акция РФ</option>
+                        <option value="transfers">Иностранные акции</option>
+                        <option value="supermarkets">Драгоценные металлы</option>
+                        <option value="restaurants">Валюта</option>
+                        <option value="topups">Криптовалюта</option>
+                        <option value="beauty">Облигации</option>
+                        <option value="beauty">Фонды</option>
+                    </select>
+
+                    <select>
+                        <option disabled selected value="cash">Актив</option>
+                        <option value="cash">Сбербанк</option>
+                        <option value="transfers">Аэрофлот</option>
+                        <option value="supermarkets">Tesla</option>
+                        <option value="restaurants">Евро</option>
+                        <option value="topups">Ethereum</option>
+                    </select>
+                    
+                    <button class="edit-btn">Редактировать</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="footer">
+        <div class="footer-content">
+            <h2>Хахон</h2>
+            <a href="https://t.me/kirungryaaa"><p class="author">Цуканов Кирилл</p></a>
+            <a href="https://t.me/ivaxaxaxa"><p class="author">Вальтуилье Иван</p></a>
+        </div>
+    </div>
+    <script>
+        // Показывать карандаш только при наведении на строку
+        document.querySelectorAll('.asset-row').forEach(function(row) {
+            row.addEventListener('mouseenter', function(){
+                row.querySelector('.edit-icon').style.opacity = '1';
+            });
+            row.addEventListener('mouseleave', function(){
+                row.querySelector('.edit-icon').style.opacity = '0';
+            });
+            // По умолчанию скрыт
+            row.querySelector('.edit-icon').style.opacity = '0';
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addAssetBtn = document.getElementById('edit-button2');
+            const modal = document.querySelector('.modal2');
+            
+            // Показываем модальное окно при клике
+            addAssetBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Блокируем скролл страницы
+            });
+            
+            // Скрываем модальное окно при клике вне его
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Закрытие при нажатии Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+            
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Восстанавливаем скролл
+            }
+        });
+        document1.addEventListener('DOMContentLoaded', function() {
+            const addAssetBtn1 = document1.getElementById('edit-button1');
+            const modal1 = document1.querySelector('.modal1');
+            
+            // Показываем модальное окно при клике
+            addAssetBtn1.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal1.classList.add('active');
+                document1.body.style.overflow = 'hidden'; // Блокируем скролл страницы
+            });
+            
+            // Скрываем модальное окно при клике вне его
+            modal1.addEventListener('click', function(e) {
+                if (e.target === modal1) {
+                    closeModal();
+                }
+            });
+            
+            // Закрытие при нажатии Escape
+            document1.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+            
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Восстанавливаем скролл
+            }
+        });
+    </script>
+    <style>
+        .date-link {
+        color: #333333;
+        text-decoration: none;
+        cursor: pointer;
+        border-bottom: 1px dashed #333333;
+        }
+        
+        .date-link:hover {
+        color: #000000;
+        border-bottom-color: #000000;
+        }
+        
+        .dropdown-menu {
+        position: absolute;
+        background: #F6F7F8;
+        border: none;
+        border-radius: 4px;
+        padding: 5px 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: none;
+        }
+        
+        .dropdown-item {
+        padding: 5px 15px;
+        cursor: pointer;
+        white-space: nowrap;
+        }
+        
+        .dropdown-item:hover {
+        background-color: #f5f5f5;
+        }
+    </style>
+</body>
+</html>

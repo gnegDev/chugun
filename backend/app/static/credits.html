@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <title>Твои долги и кредиты</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style_credits.css') }}">
+</head>
+<body>
+    <div class="top-section">
+        <div class="header">
+            <div class="logos">
+                <img src="{{ url_for('static', filename='tbank.png') }}" alt="Банк" class="bank-logo">
+                <img src="{{ url_for('static', filename='itmo.png') }}" alt="ЦОЙ" class="tsoy-logo">
+            </div>
+            <div class="certificates">
+                <img src="{{ url_for('static', filename='58sch.png') }}" alt="Сертификат 1" class="cert-logo">
+            </div>
+        </div>
+        <div class="top-line"></div>
+        <nav class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/user/account">Аккаунт</a></li>
+                <li><a href="/user/account/transactions">Финансы</a></li>
+                <li><a href="/user/account/advice">Советы</a></li>
+                <li><a href="/credits"><b>Долги и кредиты</b></a></li>
+                <li><a href="/investments">Инвестиции</a></li>
+            </ul>
+        </nav>
+    </div>
+   <p class="greeting">Твои долги и кредиты</p>
+   <main class="main-content">
+
+        
+
+        <section class="debts-main">
+            <div class="debts-panels">
+                <div class="summary-card">
+                    <div class="summary-label">Общая <br> сумма долга</div>
+                    <div class="summary-value" style="font-size: 45px;">105&nbsp;500&nbsp;000,00 ₽</div>
+                </div>
+                <div class="summary-card" style="padding: 30px 30px;">
+                    <div class="summary-label">У вас</div>
+                    <div class="summary-value">7</div>
+                    <div class="summary-desc">активных долгов</div>
+                </div>
+                <button id="edit-button2" class="yellow-btn">Добавить долг</button>
+                <div class="modal2" id="modal2">
+                    <div class="modal-content">
+                        <h2>Добавление нового долга</h2>
+                        <p>Введите данные о новом долге</p>
+
+                        <select>
+                            <option disabled selected value="cash">Категория</option>
+                            <option value="cash">Автокредит</option>
+                            <option value="transfers">Ипотека</option>
+                            <option value="supermarkets">Кредитная карта</option>
+                            <option value="restaurants">Образовательный кредит</option>
+                            <option value="topups">Займ у физ. лица</option>
+                            <option value="beauty">Займ в микрофинансах</option>
+                            <option value="beauty">Долги по штрафам</option>
+                        </select>
+                        
+                        <input type="text" placeholder="Название">
+                        <input type="number" placeholder="Общая сумма долга">
+                        <input type="number" placeholder="Остаток к выплате">
+                        <input type="number" placeholder="Процентная ствака">
+                        <input type="date" placeholder="Дата взятия долга">
+                        <input type="number" placeholder="На сколько месяцев">
+                        <input type="number" placeholder="Число ежемесячного платежа">
+                        <input type="text" placeholder="Займодавец">
+                        
+                        <button class="edit-btn">Сохранить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="upcoming-panel">
+                <div class="upcoming-title">Ближайшие платежи</div>
+                <table class="operation-table upcoming-table">
+                    <tr >
+                        <td>
+                            <div class="icon-circle"><img src="{{ url_for('static', filename='Иконки_долги/Автокредит.png') }}" alt="Автокредит"></div>
+                        </td>
+                        <td class="operation-details">
+                            <div class="row-container">
+                                <div class="left-column">
+                                    <div class="op-cat">Автокредит</div>
+                                    <div class="op-name">18&nbsp;723,49 ₽</div>
+                                </div>
+                                <div class="right-column">
+                                    <div class="op-days" data-date="2025-07-21">Через <span>5</span> дней</div>
+                                    <div class="op-date">до 21.07</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            <div class="icon-circle"><img src="{{ url_for('static', filename='Иконки_долги/Кредитная карта.png') }}" alt="Кредитная карта"></div>
+                        </td>
+                        <td class="operation-details">
+                            <div class="row-container">
+                                <div class="left-column">
+                                    <div class="op-cat">Кредитная карта</div>
+                                    <div class="op-name">43&nbsp;362,49 ₽</div>
+                                </div>
+                                <div class="right-column">
+                                    <div class="op-days" data-date="2025-07-25">Через <span>9</span> дней</div>
+                                    <div class="op-date">до 25.07</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="icon-circle"><img src="{{ url_for('static', filename='Иконки_долги/Ипотека.png') }}" alt="Ипотека"></div>
+                        </td>
+                        <td class="operation-details">
+                            <div class="row-container">
+                                <div class="left-column">
+                                    <div class="op-cat">Ипотека</div>
+                                    <div class="op-name">5&nbsp;000&nbsp;000,00 ₽</div>
+                                </div>
+                                <div class="right-column">
+                                    <div class="op-days" data-date="2025-07-28">Через <span>12</span> дней</div>
+                                    <div class="op-date">до 28.07</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="icon-circle"><img src="{{ url_for('static', filename='Иконки_долги/Образовательный кредит.png') }}" alt="Образование"></div>
+                        </td>
+                        <td class="operation-details">
+                            <div class="row-container">
+                                <div class="left-column">
+                                    <div class="op-cat">Образование</div>
+                                    <div class="op-name">100&nbsp;000,00 ₽</div>
+                                </div>
+                                <div class="right-column">
+                                    <div class="op-days" data-date="2025-07-28">Через <span>12</span> дней</div>
+                                    <div class="op-date">до 28.07</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section class="debt-activity-title">Активные долги</section>
+        <section class="active-debt-wrap">
+            <button class="arrow-btn">&#60;</button>
+            <div class="active-debt-card">
+                <div class="active-debt-body">
+                    <div class="active-debt-row">
+                        <div class="icon-circle big"><img src="{{ url_for('static', filename='Иконки_долги/Автокредит.png') }}" alt="Автокредит"></div>
+                        <div class="active-debt-info">
+                            <div class="active-debt-catrow">
+                                <span class="active-debt-cat">За автомобиль Porsche 911</span>
+                            </div>
+                            <div class="active-debt-name">Автокредит</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar-outer">
+                        <div class="progress-bar-inner" id="progressBar">
+                            <div class="progress-bar-label"><span id="progressValue"></span>&nbsp;%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="active-debt-rows">
+                    <div class="row-horizontal">
+                        <span class="active-debt-label">Остаток к выплате</span>
+                        <span class="active-debt-value">1&nbsp;532&nbsp;000,00 ₽</span>
+                    </div>
+                    <div class="row-horizontal row2">
+                        <span class="active-debt-label">Следующий платеж</span>
+                        <span class="active-debt-value">18&nbsp;723,49 ₽ (до 21.07)</span>
+                    </div>
+                </div>
+                <div class="active-debt-bottom">
+                    <div class="active-small-card" style="width: 29vw;">
+                        <p class="small-card-title">Основная информация</p>
+                        <div class="row-horizontal" style="margin-top: -10px;">
+                            <span class="active-small-label">Общая сумма</span>
+                            <span class="active-small-value">4&nbsp;000&nbsp;000,00 ₽</span>
+                        </div>
+                        <div class="row-horizontal">
+                            <span class="active-small-label">Ставка</span>
+                            <span class="active-small-value">18,99 %</span>
+                        </div>
+                        <div class="row-horizontal">
+                            <span class="active-small-label">Срок</span>
+                            <span class="active-small-value">60 месяцев</span>
+                        </div>
+                        <button id="edit-button1" class="yellow-btn">Редактировать</button>
+                        <div class="modal1" id="modal1">
+                            <div class="modal-content">
+                                <h2>Добавление нового долга</h2>
+                                <p>Введите данные о новом долге</p>
+
+                                <select>
+                                    <option disabled selected value="cash">Категория</option>
+                                    <option value="cash">Автокредит</option>
+                                    <option value="transfers">Ипотека</option>
+                                    <option value="supermarkets">Кредитная карта</option>
+                                    <option value="restaurants">Образовательный кредит</option>
+                                    <option value="topups">Займ у физ. лица</option>
+                                    <option value="beauty">Займ в микрофинансах</option>
+                                    <option value="beauty">Долги по штрафам</option>
+                                </select>
+                                
+                                <input type="text" placeholder="Название">
+                                <input type="number" placeholder="Общая сумма долга">
+                                <input type="number" placeholder="Остаток к выплате">
+                                <input type="number" placeholder="Процентная ствака">
+                                <input type="date" placeholder="Дата взятия долга">
+                                <input type="number" placeholder="На сколько месяцев">
+                                <input type="number" placeholder="Число ежемесячного платежа">
+                                <input type="text" placeholder="Займодавец">
+                                
+                                <button class="edit-btn">Сохранить</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="active-small-card" style="width: 23vw;">
+                        <p class="small-card-title">История платежей</p>
+                        <div class="row-horizontal" style="margin-top: -10px;">
+                            <span class="active-small-label">17 июня</span>
+                            <span class="active-small-value">20&nbsp;000,00 ₽</span>
+                        </div>
+                        <div class="row-horizontal">
+                            <span class="active-small-label">17 мая</span>
+                            <span class="active-small-value">23&nbsp;000,00 ₽</span>
+                        </div>
+                        <div class="row-horizontal">
+                            <span class="active-small-label">17 апреля</span>
+                            <span class="active-small-value">100&nbsp;000,00 ₽</span>
+                        </div>
+                        <button id="edit-button3" class="yellow-btn">Внести платеж</button>
+                        <div class="modal3" id="modal3">
+                            <div class="modal-content">
+                                <h2>Добавление нового платежа</h2>
+                                <p>Введите дату и сумму платежа</p>
+                            
+                                <input type="date" placeholder="Дата взятия долга">
+                                <input type="number" placeholder="Сумма внесения">
+                                
+                                <button class="edit-btn">Сохранить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="arrow-btn">&#62;</button>
+        </section>
+        <h3 class="analytics-header">
+            <span class="blue-underline">Аналитика</span>
+        </h3>
+        <section class="analytics-section">
+            <div class="structure-title">Структура долга</div>
+            <!-- Структура долга -->
+            <div class="analytics-subblock structure">
+                
+                <div class="structure-content">
+                    <img src="{{ url_for('static', filename='d1.png') }}" alt="Круговая диаграмма" class="structure-diagram">
+            
+                    <div class="structure-legend">
+                        <div class="structure-legend-row">
+                            <img src="{{ url_for('static', filename='Иконки_долги/Автокредит.png') }}" alt="" class="legend-icon">
+                            <span class="legend-label"><span class="legend-percent">24 % долга</span> Автокредит</span>
+                            <span class="legend-sum">1583200,00 ₽</span>
+                        </div>
+                        <div class="structure-legend-row">
+                            <img src="{{ url_for('static', filename='Иконки_долги/Ипотека.png') }}" alt="" class="legend-icon">
+                            <span class="legend-label"><span class="legend-percent">15 % долга</span> Ипотека</span>
+                            <span class="legend-sum">2560789,05 ₽</span>
+                        </div>
+                        <div class="structure-legend-row">
+                            <img src="{{ url_for('static', filename='Иконки_долги/Кредитная карта.png') }}" alt="" class="legend-icon">
+                            <span class="legend-label"><span class="legend-percent">8 % долга</span> Кредитная карта</span>
+                            <span class="legend-sum">561253,55 ₽</span>
+                        </div>
+                        <div class="structure-legend-row">
+                            <img src="{{ url_for('static', filename='Иконки_долги/Образовательный кредит.png') }}" alt="" class="legend-icon">
+                            <span class="legend-label"><span class="legend-percent">5 % долга</span> Образовательный кредит</span>
+                            <span class="legend-sum">315897,62 ₽</span>
+                        </div>
+                        <div class="structure-legend-row">
+                            <img src="{{ url_for('static', filename='Иконки_долги/Долги от физических лиц.png" alt="" class="legend-icon') }}">
+                            <span class="legend-label"><span class="legend-percent">9 % долга</span> Займ</span>
+                            <span class="legend-sum">835761,12 ₽</span>
+                        </div>
+                        <div class="structure-legend-row">
+                            <img src="{{ url_for('static', filename='Иконки_долги/Займы в МФО.png" alt="" class="legend-icon') }}">
+                            <span class="legend-label"><span class="legend-percent">9 % долга</span> Долг в МФО</span>
+                            <span class="legend-sum">835761,12 ₽</span>
+                        </div>
+                        <div class="structure-legend-row">
+                            <img src="{{ url_for('static', filename='Иконки_долги/Штраф.png" alt="" class="legend-icon') }}">
+                            <span class="legend-label"><span class="legend-percent">1 % долга</span> Штраф</span>
+                            <span class="legend-sum">7102,27 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="forecast-title">Прогноз погашения</div>
+                <!-- Прогноз погашения -->
+            <div class="analytics-subblock forecast">
+                <div class="forecast-content">
+                    <div class="forecast-left">
+                    <div class="forecast-text">
+                        При отсутствии пени
+                        и новых долгов, ты сможешь
+                        закрыть все долги за
+                    </div>
+                    <div class="forecast-months">
+                        23 месяца
+                    </div>
+                    <div class="forecast-text small">
+                        За это время на твоей голове
+                        вырастет 29 см волос
+                    </div>
+                    </div>
+                    <div class="forecast-rect">
+                    Линейная диаграмма с<br>
+                    прогнозом погашения всех долгов,<br>
+                    при отсутствии пени и новых долгов
+                    </div>
+                </div>
+            </div>
+        </section>
+          
+
+        <section class="sasha-section">
+            <h2 class="sasha-header">Советы от Саши</h2>
+            <div class="sasha-tips-block">
+                <img src="{{ url_for('static', filename='Саши/sasha7_nb.png" alt="Кот Саши" class="sasha-cat') }}">
+                <div class="sasha-tips-content">
+                    <div class="s-tip">
+                    Самый маленький долг у вас — 7102 ₽. Погасив его первым, вы освободите 1205 ₽ в месяц для погашения других кредитов.
+                    </div>
+                    <div class="s-tip-divider"></div>
+                    <div class="s-tip">
+                    Пени от автокредита могут составить 6700 ₽ в неделю. Не забывайте оплачивать долги вовремя!
+                    </div>
+                    <div class="s-tip-divider"></div>
+                    <div class="s-tip">
+                    Ваш самый высокий процент по ипотеке (25 %). Направив на нее дополнительные 2000 ₽ в месяц, вы сэкономите 8523 ₽ на процентах.
+                    </div>
+                    <button class="yellow-btn sasha-more">Подробнее</button>
+                </div>
+            </div>
+        </section>
+          
+        <section class="calc-section">
+            <h2 class="calc-header">Калькулятор досрочного погашения</h2>
+            <form class="calc-form-block" autocomplete="off">
+                <div class="calc-input-group">
+                    <select class="calc-input" required>
+                        <option disabled selected>Выберите долг</option>
+                        <option>Автокредит</option>
+                        <option>Кредитная карта</option>
+                        <option>Ипотека</option>
+                        <option>Прочее</option>
+                    </select>
+                    <input style="margin-top: 20px;" type="number" class="calc-input" placeholder="Сумма досрочного платежа" required>
+                    <button class="yellow-btn calc-btn" type="button">Рассчитать</button>
+                </div>
+                <div class="calc-result-group">
+                    <div class="calc-result-title">Срок погашения</div>
+                    <div class="calc-result-main">
+                    уменьшится на <span>7</span> месяцев
+                    </div>
+                    <br>
+                    <div class="calc-result-title small">Ежемесячный платеж уменьшится</div>
+                    <div class="calc-result-main">
+                    в среднем на <span>14823,61</span> ₽
+                    </div>
+                </div>
+            </form>
+          </section>
+          
+
+   </main>
+   <div class="footer">
+      <div class="footer-content">
+         <h2>Хахон</h2>
+            <a href="https://t.me/kirungryaaa"><p class="author">Цуканов Кирилл</p></a>
+            <a href="https://t.me/ivaxaxaxa"><p class="author">Вальтуилье Иван</p></a>
+      </div>
+   </div>
+   <script src="{{ url_for('static', filename='js_credits.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addAssetBtn = document.getElementById('edit-button2');
+            const modal = document.querySelector('.modal2');
+            
+            // Показываем модальное окно при клике
+            addAssetBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Блокируем скролл страницы
+            });
+            
+            // Скрываем модальное окно при клике вне его
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Закрытие при нажатии Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+            
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Восстанавливаем скролл
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const addAssetBtn1 = document.getElementById('edit-button1');
+            const modal1 = document.querySelector('.modal1');
+            
+            // Показываем модальное окно при клике
+            addAssetBtn1.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal1.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Блокируем скролл страницы
+            });
+            
+            // Скрываем модальное окно при клике вне его
+            modal1.addEventListener('click', function(e) {
+                if (e.target === modal1) {
+                    closeModal();
+                }
+            });
+            
+            // Закрытие при нажатии Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+            
+            function closeModal() {
+                modal1.classList.remove('active');
+                document.body.style.overflow = ''; // Восстанавливаем скролл
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const addAssetBtn3 = document.getElementById('edit-button3');
+            const modal3 = document.querySelector('.modal3');
+            
+            // Показываем модальное окно при клике
+            addAssetBtn3.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal3.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Блокируем скролл страницы
+            });
+            
+            // Скрываем модальное окно при клике вне его
+            modal3.addEventListener('click', function(e) {
+                if (e.target === modal3) {
+                    closeModal();
+                }
+            });
+            
+            // Закрытие при нажатии Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+            
+            function closeModal() {
+                modal3.classList.remove('active');
+                document.body.style.overflow = ''; // Восстанавливаем скролл
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Транзакции</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='account.css') }}">
+
+</head>
+<body>
+<div class="form-container">
+    <a href="/user/account">назад</a> <h2>Загрузка транзакции</h2>
+    <div class="balance-container">
+
+        <form id="csv-form" action="#" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Файл:</label>
+                <input type="file" id="file" name="file" required>
+            </div>
+
+            <button type="submit">Загрузка файла</button>
+        </form>
+    </div>
+
+    <div class="balance-container">
+        <form id="transaction-form" action="#" method="post">
+            <div class="form-group">
+                <label for="account_rk">ID счета:</label>
+                <input id="account_rk" name="account_rk" required>
+            </div>
+
+            <div class="form-group">
+                <label for="financial_account_type_cd">Тип счета:</label>
+                <select id="financial_account_type_cd" name="financial_account_type_cd" required>
+                    <option value="">Выберите вариант</option>
+                    <option value="ACR">ACR</option>
+                    <option value="ALR">ALR</option>
+                    <option value="ASC">ASC</option>
+                    <option value="BIL">BIL</option>
+                    <option value="BNK">BNK</option>
+                    <option value="BNP">BNP</option>
+                    <option value="CAR">CAR</option>
+                    <option value="CCR">CCR</option>
+                    <option value="CLA">CLA</option>
+                    <option value="CLN">CLN</option>
+                    <option value="COR">COR</option>
+                    <option value="CUR">CUR</option>
+                    <option value="DEP">DEP</option>
+                    <option value="GRN">GRN</option>
+                    <option value="IND">IND</option>
+                    <option value="INS">INS</option>
+                    <option value="LON">LON</option>
+                    <option value="MOB">MOB</option>
+                    <option value="MTB">MTB</option>
+                    <option value="MTG">MTG</option>
+                    <option value="MTL">MTL</option>
+                    <option value="PHX">PHX</option>
+                    <option value="REF">REF</option>
+                    <option value="SAV">SAV</option>
+                    <option value="SCL">SCL</option>
+                    <option value="SLN">SLN</option>
+                    <option value="TAX">TAX</option>
+                    <option value="TCN">TCN</option>
+                    <option value="VKR">VKR</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="financial_account_subtype_cd">Подтип счета:</label>
+                <select id="financial_account_subtype_cd" name="financial_account_subtype_cd" required>
+                    <option value="">Выберите вариант</option>
+                    <option value="ACR">ACR</option>
+                    <option value="ALR">ALR</option>
+                    <option value="ASC">ASC</option>
+                    <option value="BIL">BIL</option>
+                    <option value="BNK">BNK</option>
+                    <option value="BNP">BNP</option>
+                    <option value="CAR">CAR</option>
+                    <option value="CCR">CCR</option>
+                    <option value="CLA">CLA</option>
+                    <option value="CLN">CLN</option>
+                    <option value="COR">COR</option>
+                    <option value="CUR">CUR</option>
+                    <option value="DEP">DEP</option>
+                    <option value="GRN">GRN</option>
+                    <option value="IND">IND</option>
+                    <option value="INS">INS</option>
+                    <option value="LON">LON</option>
+                    <option value="MOB">MOB</option>
+                    <option value="MTB">MTB</option>
+                    <option value="MTG">MTG</option>
+                    <option value="MTL">MTL</option>
+                    <option value="PHX">PHX</option>
+                    <option value="REF">REF</option>
+                    <option value="SAV">SAV</option>
+                    <option value="SCL">SCL</option>
+                    <option value="SLN">SLN</option>
+                    <option value="TAX">TAX</option>
+                    <option value="TCN">TCN</option>
+                    <option value="VKR">VKR</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="transaction_type_cd">Тип транзакции:</label>
+                <select id="transaction_type_cd" name="transaction_type_cd" required>
+                    <option value="">Выберите вариант</option>
+                    <option value="ADO">ADO</option>
+                    <option value="ATR">ATR</option>
+                    <option value="ATT">ATT</option>
+                    <option value="CHB">CHB</option>
+                    <option value="DIN">DIN</option>
+                    <option value="FEE">FEE</option>
+                    <option value="GCS">GCS</option>
+                    <option value="PAY">PAY</option>
+                    <option value="PUC">PUC</option>
+                    <option value="RCI">RCI</option>
+                    <option value="RCU">RCU</option>
+                    <option value="RET">RET</option>
+                    <option value="TOT">TOT</option>
+                    <option value="TRM">TRM</option>
+                    <option value="TRS">TRS</option>
+                    <option value="UCH">UCH</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="transaction_amt_rur">Сумма транзакции:</label>
+                <input type="number" id="transaction_amt_rur" name="transaction_amt_rur"
+                       min="0"
+                       placeholder="Введите сумму" required>
+            </div>
+
+            <div class="form-group">
+                <label for="real_transaction_dttm">Время транзакции:</label>
+                <input type="date" id="real_transaction_dttm" name="real_transaction_dttm" required>
+            </div>
+
+            <div class="form-group">
+                <label for="brand_nm">Название бренда транзакции:</label>
+                <input id="brand_nm" name="brand_nm" required>
+            </div>
+
+            <div class="form-group">
+                <label for="loyalty_cashback_category_nm">Название категории транзакции:</label>
+                <input id="loyalty_cashback_category_nm" name="loyalty_cashback_category_nm" required>
+            </div>
+
+            <div class="form-group">
+                <label for="loyalty_accrual_rub_amt">Сумма кэшбека:</label>
+                <input type="number" id="loyalty_accrual_rub_amt" name="loyalty_accrual_rub_amt"
+                       min="0"
+                       placeholder="Введите сумму" required>
+            </div>
+            <div class="form-group">
+                <label>Утилизирующая транзакция:</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="utilization_flg" value="0" required checked>
+                        Нет
+                    </label>
+                    <label>
+                        <input type="radio" name="utilization_flg" value="1">
+                        Да
+                    </label>
+                </div>
+            </div>
+            <button type="submit">Новая транзакция</button>
+        </form>
+    </div>
+</div>
+<div class="form-container">
+    <h2>Транзакции</h2>
+    {% for transaction in transactions %}
+    <div class="balance-container">
+    <p>ID транзакции: {{ transaction["transaction_rk"] }}</p>
+    <p>Тип транзакции: {{ transaction["transaction_type_cd"] }}</p>
+    <p>Сумма транзакции: {{ transaction["transaction_amt_rur"] }}</p>
+    <p>Время транзакции: {{ transaction["real_transaction_dttm"] }}</p>
+    <p>Бренд транзакции: {{ transaction["brand_nm"] }}</p>
+    <br>
+    <p>Категория кэшбека: {{ transaction["loyalty_cashback_category_nm"] }}</p>
+    <p>Сумма кэшбека: {{ transaction["loyalty_accrual_rub_amt"] }}</p>
+    <br>
+    <p>ID счета: {{ transaction["account_rk"] }}</p>
+    <p>Тип счета: {{ transaction["financial_account_type_cd"] + " " + transaction["financial_account_subtype_cd"] }}</p>
+
+
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

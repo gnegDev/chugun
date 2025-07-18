@@ -1,0 +1,143 @@
+body {
+    font-family: 'Mont', sans-serif;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 60px;
+    font-family: Mont;
+}
+
+h2 {
+    font-size: 60px;
+    font-family: Mont;
+}
+
+p {
+    font-size: 32px;
+    font-family: Mont;
+}
+
+.author {
+    font-size: 20px;
+    font-family: Mont;
+    margin-top: -20px;
+}
+
+.header {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+.logos { display: flex; align-items: center; gap: 20px; }
+.bank-logo { width: 200px; height: auto; }
+.tsoy-logo { width: 120px; height: auto; }
+.cert-logo { width: 75px; height: auto; }
+
+.main-content {
+    display: flex;
+    gap: 50px;
+    margin-top: 50px;
+    align-items: center;
+    width: 80%;
+    align-self: center;
+}
+
+.mascot-container {
+    flex: 1;
+    text-align: center;
+}
+
+.text-content {
+    flex: 1;
+    text-align: center;
+}
+
+.mascot {
+    width: 500px;
+    height: auto;
+}
+
+.friendship-section {
+    display: flex;
+    gap: 50px;
+    margin-top: 100px;
+    align-items: center;
+    width: 80%;
+    align-self: center;
+}
+
+.form-container {
+    flex: 1;
+    text-align: center;
+}
+
+.form-description {
+    flex: 1;
+    text-align: center;
+}
+
+input, select {
+    width: 70%;
+    padding: 25px;
+    margin: 15px 0;
+    border-radius: 30px;
+    border: 1px solid #eee;
+    background: #f8f8f8;
+    font-family: 'Mont', sans-serif;
+    font-size: 20px;
+}
+
+select {
+    cursor: pointer;
+    width: 78%;
+}
+
+.button {
+    background: #FFD700;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 35px;
+    font-family: 'Mont', sans-serif;
+    width: 400px;
+    height: 100px;
+}
+
+.footer {
+    margin-top: auto;
+    color: white;
+    background: black;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 100px;
+}
+
+.footer-content {
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin-left: 100px;
+    gap: 10px;
+}
+
+.footer-content a {
+    text-decoration: none;
+    color: white;
+}
+
+@font-face {
+    font-family: Mont;
+    src: url("expresswayfree.ttf");
+}

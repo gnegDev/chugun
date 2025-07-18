@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Настройки профиля - Саша</title>
+    <link rel="stylesheet" href="style_settings.css">
+</head>
+<body>
+    <div class="top-section">
+        <div class="header">
+            <div class="logos">
+                <img src="tbank.png" alt="Банк" class="bank-logo">
+                <img src="itmo.png" alt="ЦОЙ" class="tsoy-logo">
+            </div>
+            <div class="certificates">
+                <img src="58sch.png" alt="Сертификат 1" class="cert-logo">
+            </div>
+        </div>
+        <div class="top-line"></div>
+        <nav class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="finance.html">Финансы</a></li>
+                <li><a href="credits.html">Долги и кредиты</a></li>
+                <li><a href="invest.html">Инвестиции</a></li>
+                <li><a href="settings.html">Настройки профиля</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <h1 class="settings-header">Настройки профиля</h1>
+    
+    <div id="settings-section" class="settings-section">
+        <h2>Личные данные</h2>
+        <div class="info-card">
+            <p>ФИО: Цуканов Кирилл Сергеевич</p>
+            <p>Дата рождения: 03.03.2007</p>
+            <p>Пол: мужской</p>
+            <p>Гарантированный доход в месяц: 100000,00 ₽</p>
+            <p>Дата поступления дохода: 5 число каждого месяца</p>
+        </div>
+        <button id="edit-button" class="edit-button">Редактировать</button>
+        <div class="modal">
+            <div class="modal-content">
+                <h2>Личные данные</h2>
+                <p>Введите данные, которые хотите изменить</p>
+                
+                <input type="text" placeholder="ФИО">
+                <select>
+                    <option value="" disabled selected>Пол</option>
+                    <option value="male">Мужской</option>
+                    <option value="female">Женский</option>
+                </select>
+                <input type="date" placeholder="Дата рождения">
+                <input type="number" placeholder="Заработок в месяц">
+                <input type="number" placeholder="Число получения дохода">
+                
+                <button class="edit-btn">Редактировать</button>
+            </div>
+        </div>
+        
+        <script>
+            const editButton = document.getElementById('edit-button');
+            const modal = document.querySelector('.modal');
+        
+            editButton.addEventListener('click', () => {
+                modal.style.display = 'block';
+            });
+        
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        </script>
+    </div>
+
+    <div id="statistics-section" class="settings-section">
+        <h2>Статистика финансов</h2>
+        <div class="info-card">
+            <p>Лимит на месяц: 100000,00 ₽</p>
+            <p>Добавленные тобой категории:</p>
+            <ul>
+                <li>коты</li>
+                <li>маме на дачу</li>
+                <li>отпуск</li>
+            </ul>
+        </div>
+        <button id="edit-button1" class="edit-button">Редактировать</button>
+        <div class="modal1">
+            <div class="modal-content">
+                <h2>Статистика финансов</h2>
+                <p>Введите данные, которые хотите изменить</p>
+                <input type="text" placeholder="Лимит на месяц">
+                <button class="edit-btn">Добавить категорию</button>
+                <button class="edit-btn">Редактировать</button>
+            </div>
+        </div>
+        
+        <script>
+            const editButton1 = document.getElementById('edit-button1');
+            const modal1 = document.querySelector('.modal1');
+        
+            editButton1.addEventListener('click', () => {
+                modal1.style.display = 'block';
+            });
+        
+            window.addEventListener('click', (event) => {
+                if (event.target === modal1) {
+                    modal1.style.display = 'none';
+                }
+            });
+        </script>
+    </div>
+
+    <div id="additional-section" class="settings-section">
+        <h2>Дополнительно</h2>
+        <div class="info-card">
+            <p>Цель: Ноутбук Apple MacBook Pro 16"</p>
+            <p>Стоимость цели: 700980,00 ₽</p>
+        </div>
+        <button id="edit-button2" class="edit-button">Редактировать</button>
+        <div class="modal2">
+            <div class="modal-content">
+                <h2>Дополнительно</h2>
+                <p>Введите данные, которые хотите изменить</p>
+                
+                <input type="text" placeholder="Цель">
+                <input type="number" placeholder="Стоимость цели">
+                <button class="edit-btn">Загрузить фото цели</button>
+                
+                <button class="edit-btn">Редактировать</button>
+            </div>
+        </div>
+        
+        <script>
+            const editButton2 = document.getElementById('edit-button2');
+            const modal2 = document.querySelector('.modal2');
+        
+            editButton2.addEventListener('click', () => {
+                modal2.style.display = 'block';
+            });
+        
+            window.addEventListener('click', (event) => {
+                if (event.target === modal2) {
+                    modal2.style.display = 'none';
+                }
+            });
+        </script>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">
+            <h2>Хахон</h2>
+            <a href="https://t.me/kirungryaaa"><p class="author">Цуканов Кирилл</p></a>
+            <a href="https://t.me/ivaxaxaxa"><p class="author">Вальтуилье Иван</p></a>
+        </div>
+    </div>
+</body>
+</html>
